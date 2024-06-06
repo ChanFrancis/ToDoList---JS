@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./styles/styles.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="shortcut icon" href="./images/Checkmark.png" />
+
+    <title>To do list</title>
+</head>
+
+<body>
+    <!-- NavBar -->
+    <nav id="nav">
+        <div id="closeNav">×</div>
+        <div class="logoContainer">
+            <a href=""><img src="./images/Checkmark.png" class="logo"></a>
+        </div>
+        <div class="TodoNav">To Do List</div>
+        <ul class="navItem">
+
+            <!-- NavRadio -->
+            <div class="NavFilterSelect">
+                <div>
+                    <input type="radio" name="taches" id="todoTask" class="navRadio">
+                    <label for="todoTask">➤ Tâches à faire</label>
+                </div>
+                <div>
+                    <input type="radio" name="taches" id="allTasks" class="navRadio">
+                    <label for="allTasks">➤ Toutes les tâches</label>
+                </div>
+                <div>
+                    <input type="radio" name="taches" id="finishedTasks" class="navRadio">
+                    <label for="finishedTasks">➤ Tâches terminées</label>
+                </div>
+            </div>
+
+            <!-- NavSearch form -->
+            <form id="navForm" class="navForm" onsubmit="return false">
+                <div class="formRecherche">Recherche par</div>
+                <div class="formRadio">
+                    <input type="radio" name="searchChoice" id="searchByKeyWord">
+                    <label for="searchByKeyWord" class="searchByKeyWordLabel">Mot</label>
+                    <input type="radio" name="searchChoice" id="searchByDate">
+                    <label for="searchByDate" class="searchByDateLabel">Date</label>
+                </div>
+
+                <div style="position: relative; height: 70px;">
+                    <div class="searchBarContainer">
+                        <label for="searchBar">Nom de tâche :</label>
+                        <input type="search" id="searchBar">
+                    </div>
+
+                    <div class="searchDateContainer">
+                        <label for="searchDate">Date :</label><br>
+                        <input type="date" id="searchDate" value="searchDate">
+                    </div>
+                </div>
+
+                <button type="submit" id="searchSubmit">Rechercher</button>
+
+            </form>
+
+        </ul>
+    </nav>
+    <!-- Menu Burger for small screen -->
+    <div id="menuBurger"><img src="./images/menu.png" alt="Menu Burger"></div>
+
+    <!-- Page content where the card will be displayed -->
+    <div id="pageContent">
+
+        <!-- Sticky add task button -->
+        <div id="addTask">
+            + Ajouter une tâche
+        </div>
+
+        <div id="searchDescription"></div>
+        <!-- JS displaying ID -->
+        <div id="ToDoList"></div>
+
+    </div>
+
+    <!-- Delete container -->
+    <div id="DeleteContainer" class="hidden">
+        <div>
+            Etes-vous sûr(e) de vouloir supprimer cette tâche ?
+        </div>
+        <div class="checkboxDelete">
+            <label for="DoNotAskAgain" class="DoNotAskAgainLabel">Ne plus demander</label>
+            <input type="checkbox" id="DoNotAskAgain" name="DoNotAskAgain" unchecked>
+        </div>
+        <div class="DeleteConfirm">
+            <button id="DeleteCancelled">annuler</button>
+            <button id="DeleteConfirmed">confirmer</button>
+        </div>
+    </div>
+
+    <!-- Add tasks container -->
+    <div id="AddTaskContainer" class="hidden">
+        <h2>Ajouter une tâche</h2>
+        <div id="ErrorMessages"></div>
+
+        <div class="AddTaskComplete">Complétez les champs ci-dessous :</div>
+
+        <!-- Add tasks form -->
+        <form id="AddForm" onsubmit="return false">
+            <div class="AddTaskLabel">
+                <label for="label">Titre*</label>
+                <br>
+                <input type="text" name="label" id="label" pattern="[A-Za-zÀ-ÖØ-öø-ÿ0-9 ]+" required>
+            </div>
+            <div class="AddTaskDescription">
+                <label for="description">Description de la tâche</label> <br>
+                <textarea id="description" name="description" rows="3" cols="65"></textarea>
+            </div>
+
+            <div class="AddTaskSubmitContainer">
+                <button id="CreateCancelled">Annuler</button>
+                <button type="submit" id="confirmAddTask">Ajouter</button>
+            </div>
+        </form>
+        <legend>* Champs requis et ne peut contenir des caratères spéciaux.</legend>
+    </div>
+
+    <!-- Task added pop out -->
+    <div id="TaskAddSuccess" class="opacity">
+        ✔️ Tâche ajoutée
+    </div>
+
+    <script type="text/Javascript" src="./js/date.js"> </script>
+    <script type="text/Javascript" src="./js/displayfetchAPI.js"> </script>
+    <script type="text/Javascript" src="./js/deleteTask.js"> </script>
+    <script type="text/Javascript" src="./js/taskDone.js"> </script>
+    <script type="text/Javascript" src="./js/createTask.js"> </script>
+    <script type="text/Javascript" src="./js/searchTasks.js"> </script>
+    <script type="text/Javascript" src="./js/printElement.js"> </script>
+    <script type="text/Javascript" src="./js/responsive.js"> </script>
+</body>
+
+</html>

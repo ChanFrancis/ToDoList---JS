@@ -1,0 +1,613 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+
+    display: flex;
+    flex-wrap: nowrap;
+    font-size: 1rem;
+}
+
+/* NavBar */
+nav {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 20%;
+    background-color: #F4FCFD;
+}
+
+#closeNav {
+    position: fixed;
+    align-self: end;
+    transform: scale(2);
+    top: 5px;
+    padding-right: 10px;
+    display: none;
+    cursor: pointer;
+}
+
+#closeNav:active {
+    color: red;
+}
+
+.TodoNav {
+    width: auto;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.logoContainer {
+    width: 100%;
+    text-align: center;
+}
+
+.logo {
+    width: 50%;
+    min-width: 120px;
+    margin: 1rem auto 0;
+}
+
+.navItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.navRadio {
+    display: none;
+}
+
+.navRadio:checked+label {
+    font-weight: 600;
+}
+
+.navForm {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+#searchBar {
+    margin-bottom: 0.75rem;
+}
+
+#searchDate {
+    margin-bottom: 0.75rem;
+}
+
+.formRecherche {
+    text-align: center;
+}
+
+.formRadio {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #D7F3F8;
+    border-radius: 25px;
+    box-shadow: 1px 1px 1px black;
+    margin-bottom: 0.5rem;
+}
+
+.formRadio input {
+    display: none;
+}
+
+.searchByKeyWordLabel {
+    width: 100%;
+    border-radius: 25px 0 0 25px;
+    padding: 0.1rem 0.75rem;
+    text-align: center;
+    border-right: 1px solid black;
+}
+
+.searchByDateLabel {
+    width: 100%;
+    border-radius: 0 25px 25px 0;
+    padding: 0.1rem 0.75rem;
+    text-align: center;
+    border-left: 1px solid black;
+}
+
+.formRadio input:checked+label {
+    font-weight: 600;
+    box-shadow: inset 0px 1px 1px black;
+    font-size: 1.1rem
+}
+
+.searchBarContainer,
+.searchDateContainer {
+    transform: rotateY(90deg);
+    transition: all 0.3s ease-out;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.searchBarContainer:has(input.active) {
+    transform: rotateY(0deg);
+    opacity: 1;
+
+}
+
+.searchDateContainer:has(input.active) {
+    transform: rotateY(0deg);
+    opacity: 1;
+
+}
+
+
+.searchBarContainer input,
+.searchDateContainer input {
+    width: 100%;
+}
+
+
+
+
+
+
+
+.navForm button {
+    height: 35px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+}
+
+#menuBurger img {
+    width: 30px;
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    padding: 0.25rem;
+    display: none;
+}
+
+#menuBurger img:hover {
+    background-color: #FFFFFF;
+    border-radius: 5px;
+}
+
+#menuBurger img:active {
+    background-color: #E9FAFB;
+    transform: scale(0.95);
+}
+
+
+/* Page content */
+h2 {
+    margin: 1rem 0 0.75rem;
+}
+
+#pageContent {
+    width: 100%;
+    height: 100vh;
+    padding-top: 4rem;
+    background-color: #D7F3F8;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* Add tasks */
+#addTask {
+    position: absolute;
+    top: 1.5rem;
+    right: 3%;
+    background-color: #FFFFFF;
+    border-radius: 50px;
+    border: 2px solid #0C4584;
+    width: 180px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#addTask:hover {
+    background-color: #0C4584;
+    color: #FFFFFF;
+}
+
+#addTask:active {
+    background-color: black;
+    transform: scale(0.95);
+}
+
+#AddTaskContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    background-color: #FFFFFF;
+    width: 500px;
+    height: 400px;
+    border-radius: 10px;
+    border: 2px solid black;
+    box-shadow: 5px 0px 50px 0px black;
+    padding: 1.5rem;
+}
+
+#AddForm {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.AddTaskComplete {
+    margin: 0.25rem 0 0.5rem;
+}
+
+.AddTaskLabel {
+    margin: 0.25rem 0 0.5rem;
+}
+
+.AddTaskDescription {
+    margin-bottom: 1.25rem;
+}
+
+textarea {
+    width: 100%;
+    resize: none;
+    border-radius: 5px;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+textarea:focus {
+    border: 1px solid #0C4584;
+    outline: 1px solid #0C4584;
+}
+
+input {
+    border-radius: 5px;
+    padding: 0 0.5rem;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+input:focus {
+    border: 1px solid #0C4584;
+    outline: 1px solid #0C4584;
+}
+
+.AddTaskSubmitContainer {
+    align-self: flex-end;
+}
+
+.AddTaskSubmitContainer button {
+    width: 85px;
+    height: 35px;
+    border: 2px solid #0C4584;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    font-size: medium;
+    letter-spacing: 0.25px;
+    cursor: pointer;
+}
+
+#CreateCancelled {
+    margin-right: 0.25rem;
+}
+
+.AddTaskSubmitContainer button:hover {
+    background-color: #0C4584;
+    color: white;
+}
+
+.AddTaskSubmitContainer button:active {
+    background-color: black;
+    color: white;
+    transform: scale(0.95);
+}
+
+legend {
+    bottom: 15px;
+    position: absolute;
+    font-size: 0.7rem;
+}
+
+#ErrorMessages {
+    color: red;
+    font-weight: 600;
+}
+
+#TaskAddSuccess {
+    position: absolute;
+    top: 7%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+    height: 30px;
+    width: 180px;
+    background-color: #FFFFFF;
+    border-radius: 15px 0 0 15px;
+    border: 1px solid black;
+    border-right: 3px solid black;
+    transition: all 0.3s ease-out;
+
+
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.opacity {
+    opacity: 0;
+    z-index: -1 !important;
+    transform: translate(0%, -50%) !important;
+}
+
+/* To do List */
+#ToDoList {
+    max-width: 100%;
+    max-height: 85%;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #27C9D6 white;
+    padding: 0 3rem 4rem;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 23%);
+    grid-gap: 1rem;
+    justify-content: space-between;
+}
+
+
+.searchResult {
+    position: absolute;
+    top: 2rem;
+}
+
+.Title {
+    position: absolute;
+    top: 2rem;
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.todoCard {
+    min-height: 225px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 5%;
+    background-color: #FFFFFF;
+    margin-top: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    word-break: break-word;
+}
+
+.todoDescrip {
+    margin-bottom: auto;
+}
+
+.todoDateDelete {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+[id*="delete_"] {
+    transform: translateY(10%) scale(1.75);
+    cursor: pointer;
+}
+
+[id*="delete_"]:hover {
+    color: red;
+}
+
+
+[id*="delete_"]:active {
+    transform: translateY(10%) scale(1.5);
+}
+
+.todoDone {
+    width: 130px;
+    height: 30px;
+    border-radius: 30px;
+    border: 2px solid #0C4584;
+    background-color: #0C4584;
+    margin: 0.75rem 0.25rem 0.25rem;
+    align-self: flex-end;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.todoDone:hover {
+    background-color: white;
+    color: black;
+}
+
+.todoDone:active {
+    transform: scale(0.95);
+    box-shadow: inset 0px 0px 5px 1px rgb(12, 12, 12);
+}
+
+.todoFinishedList {
+    margin-top: 0.75rem;
+}
+
+/* Delete window */
+#DeleteContainer {
+    position: absolute;
+    width: 500px;
+    height: 100px;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 2px solid black;
+    box-shadow: 5px 0px 50px 0px black;
+    background: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#DoNotAskAgain {
+    cursor: pointer;
+}
+
+.DoNotAskAgainLabel {
+    cursor: pointer;
+}
+
+.DeleteConfirm {
+    float: right;
+    align-self: flex-end;
+}
+
+#DeleteCancelled {
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+}
+
+#DeleteConfirmed {
+    width: 100px;
+    height: 30px;
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.emptyData,
+.searchResult {
+    font-weight: 600;
+}
+
+
+@media screen and (max-width: 1400px) {
+    h2 {
+        font-size: 1.35rem;
+    }
+
+    #ToDoList {
+        grid-template-columns: repeat(auto-fill, 30%);
+    }
+}
+
+
+@media screen and (max-width: 1200px) {
+    #ToDoList {
+        grid-template-columns: repeat(auto-fill, 48%);
+    }
+
+    .todoDone {
+        font-size: 0.95rem;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    nav {
+        width: 30%;
+    }
+
+    #ToDoList {
+        grid-template-columns: repeat(auto-fill, 100%);
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    nav {
+        transform: translate(-100%);
+        transition: all 0.3s ease-out;
+        overflow: hidden;
+        position: absolute;
+        width: 60%;
+        z-index: 5;
+    }
+
+    nav.active {
+        transform: translate(0);
+    }
+
+    #menuBurger img {
+        display: block;
+    }
+
+    #closeNav {
+        display: block;
+    }
+
+    #AddTaskContainer {
+        width: 90%;
+        box-sizing: border-box;
+    }
+
+    #DeleteContainer {
+        width: 90%;
+        box-sizing: border-box;
+        height: auto;
+    }
+
+    .checkboxDelete {
+        display: flex;
+        flex-wrap: nowrap;
+        margin-bottom: 5px;
+    }
+
+    .todoCard {
+        padding: 3%;
+    }
+
+    .searchResult {
+        position: relative;
+        order: -1;
+        margin-bottom: 1rem;
+    }
+
+    .Title {
+        position: relative;
+        order: -1;
+        margin-bottom: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    nav {
+        transform: translate(-100%);
+        transition: all 0.3s ease-out;
+        overflow: hidden;
+        position: absolute;
+        width: 100%;
+        z-index: 5;
+    }
+
+    nav.active {
+        transform: translate(0);
+    }
+
+    .AddTaskLabel input {
+        width: 100%;
+    }
+
+    .DeleteConfirm {
+        margin-top: 10px;
+        align-self: center;
+    }
+}
