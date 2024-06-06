@@ -18,7 +18,7 @@ Afin d'utiliser cette To Do list, il faut lancer l'éxécutable "todolist_window
 <li>taskDone.js - Enregistrer la date de fin lorsqu'une tâche est terminée  </li>
 <li>createTask.js - Création d'une tâche. <br/>- Le titre de la tâche ne doit pas inclure des caratères spéciaux et doit être unique.<br/>- A la création d'une tâche, un message de confirmation apparaît pendant un petit moment. </li>
 <li>searchTasks.js - Permet de recherche une ou plusieurs tâches par date ou par mot clef.</li>
-<li>printElement.js - Fonction permettant de transformer un objet vers le format "card" qui sera intégrer dans le html par la suite (cette fonrtion prend un objet comme paramètre ayant "start_date", "label" et "description" au minimum). </li>
+<li>printElement.js - Fonction permettant de transformer un objet vers le format "card" qui sera intégrer dans le html par la suite (cette fonction prend un objet comme paramètre ayant "start_date", "label" et "description" au minimum). </li>
 <li>responsive.js - Ajoute ou supprime des class pour une affichage responsive avec le CSS.</li>
 <br/>
 
